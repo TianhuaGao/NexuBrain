@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+
+# Obsidian local state
+.obsidian/
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash/
+
+# Local runtime artifacts
+.README.md
+*.log
+*.tmp
+*.bak
+__pycache__/
+
+# Secrets
+.env
+.env.*
+*.key
+*.pem
+secrets/

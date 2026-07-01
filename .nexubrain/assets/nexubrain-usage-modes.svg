@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">NexuBrain usage modes</title>
+  <desc id="desc">A visual diagram showing NexuBrain as a generative connectome source that grows a visible connection layer beside a project or vault.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef6ff"/>
+    </linearGradient>
+    <linearGradient id="brain" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9f0ff"/>
+      <stop offset="52%" stop-color="#dff8eb"/>
+      <stop offset="100%" stop-color="#fff3cc"/>
+    </linearGradient>
+    <linearGradient id="starter" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e9f7ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <linearGradient id="external" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4f1ff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#15324d" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b5b77"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #142033; }
+      .subtitle { font: 500 18px Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #52667a; }
+      .section { font: 700 24px Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #172338; }
+      .label { font: 650 18px Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #1f3147; }
+      .body { font: 500 15px Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #4d6073; }
+      .tiny { font: 600 12px Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64758a; letter-spacing: 0.5px; }
+      .card { stroke: #cbd8e6; stroke-width: 1.5; filter: url(#shadow); }
+      .chip { fill: #ffffff; stroke: #d8e2ef; stroke-width: 1; }
+      .line { fill: none; stroke: #3b5b77; stroke-width: 3; marker-end: url(#arrow); }
+      .soft-line { fill: none; stroke: #7a91a8; stroke-width: 2; stroke-dasharray: 7 7; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" rx="28" fill="url(#bg)"/>
+
+  <text x="600" y="62" text-anchor="middle" class="title">NexuBrain Usage Modes</text>
+  <text x="600" y="94" text-anchor="middle" class="subtitle">A generative connectome source for growing human-agent connection layers</text>
+
+  <g transform="translate(450 130)" filter="url(#shadow)">
+    <path d="M150 28
+      C115 15 82 28 70 58
+      C38 57 22 83 30 112
+      C4 131 5 168 35 184
+      C32 220 61 245 94 237
+      C111 263 151 266 172 242
+      C202 264 247 251 254 215
+      C291 207 306 169 286 140
+      C304 109 286 73 251 68
+      C241 32 196 14 168 39
+      C163 34 157 30 150 28 Z" fill="url(#brain)" stroke="#8bb7d9" stroke-width="3"/>
+    <path d="M92 73 C119 82 122 110 103 125 C127 129 137 152 123 174 C145 178 152 203 135 220" fill="none" stroke="#5f8fb6" stroke-width="4" stroke-linecap="round"/>
+    <path d="M171 63 C153 88 161 111 184 121 C164 136 169 166 194 174 C174 190 179 217 205 226" fill="none" stroke="#5f8fb6" stroke-width="4" stroke-linecap="round"/>
+    <path d="M231 84 C213 96 210 117 226 132 C204 141 200 166 218 181" fill="none" stroke="#5f8fb6" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <text x="600" y="402" text-anchor="middle" class="section">NexuBrain Framework</text>
+  <text x="600" y="430" text-anchor="middle" class="body">templates, protocols, profiles, evidence chains, workspace links, and agent boundaries</text>
+
+  <path class="line" d="M525 382 C390 390 290 420 245 480"/>
+  <path class="line" d="M675 382 C810 390 910 420 955 480"/>
+
+  <g transform="translate(70 470)">
+    <rect class="card" width="430" height="210" rx="22" fill="url(#starter)"/>
+    <text x="28" y="44" class="tiny">MODE A</text>
+    <text x="28" y="76" class="section">Generated Layer</text>
+    <text x="28" y="108" class="body">Generate a visible connection layer for</text>
+    <text x="28" y="132" class="body">your own vault, repository, or project.</text>
+    <rect class="chip" x="280" y="32" width="116" height="34" rx="17"/>
+    <text x="338" y="54" text-anchor="middle" class="tiny">FOCUSED GRAPH</text>
+    <g transform="translate(28 158)">
+      <rect x="0" y="0" width="94" height="30" rx="15" fill="#edf5ff" stroke="#c9dcf4"/>
+      <text x="47" y="20" text-anchor="middle" class="tiny">SEED</text>
+      <rect x="112" y="0" width="94" height="30" rx="15" fill="#edf8f1" stroke="#c8e4d2"/>
+      <text x="159" y="20" text-anchor="middle" class="tiny">CONNECT</text>
+      <rect x="224" y="0" width="104" height="30" rx="15" fill="#fff6df" stroke="#ead7a0"/>
+      <text x="276" y="20" text-anchor="middle" class="tiny">GROW</text>
+    </g>
+  </g>
+
+  <g transform="translate(700 470)">
+    <rect class="card" width="430" height="210" rx="22" fill="url(#external)"/>
+    <text x="28" y="44" class="tiny">MODE B</text>
+    <text x="28" y="76" class="section">Hidden Source</text>
+    <text x="28" y="108" class="body">Keep NexuBrain inside .nexubrain as a</text>
+    <text x="28" y="132" class="body">hidden protocol and template source.</text>
+    <rect class="chip" x="254" y="32" width="142" height="34" rx="17"/>
+    <text x="325" y="54" text-anchor="middle" class="tiny">NON-INTRUSIVE</text>
+    <g transform="translate(28 158)">
+      <rect x="0" y="0" width="112" height="30" rx="15" fill="#eef3f8" stroke="#cad6e5"/>
+      <text x="56" y="20" text-anchor="middle" class="tiny">MY WORK</text>
+      <path class="soft-line" d="M130 15 L210 15"/>
+      <rect x="226" y="0" width="126" height="30" rx="15" fill="#f3efff" stroke="#d4c8fb"/>
+      <text x="289" y="20" text-anchor="middle" class="tiny">.NEXUBRAIN</text>
+    </g>
+  </g>
+
+  <g transform="translate(355 300)">
+    <rect class="chip" x="0" y="0" width="490" height="44" rx="22"/>
+    <text x="245" y="28" text-anchor="middle" class="label">Grow a recoverable human-agent connectome</text>
+  </g>
+</svg>

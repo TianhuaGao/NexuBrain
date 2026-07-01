@@ -1,0 +1,201 @@
+{
+  "name": "NexuBrain",
+  "kind": "generative-cognitive-connectome-framework",
+  "version": "0.1.0-dev",
+  "status": "development",
+  "templates": {
+    "description": "Default complete connection-layer template with Nexus entry, current snapshot, knowledge, tasks, workspaces, evidence chains, logs, brain regions, skills, resources, and responsible-use text.",
+    "entry": ".nexubrain/templates"
+  },
+  "profiles": {
+    "obsidian-vault": ".nexubrain/profiles/obsidian-vault.md",
+    "code-repo": ".nexubrain/profiles/code-repo.md",
+    "research-project": ".nexubrain/profiles/research-project.md",
+    "content-project": ".nexubrain/profiles/content-project.md"
+  },
+  "protocol": ".nexubrain/core/protocol.md",
+  "installer": ".nexubrain/installer/nexubrain-init.sh",
+  "mode_protocol": ".nexubrain/core/modes.md",
+  "onboarding_protocol": ".nexubrain/core/onboarding.md",
+  "setup_commands": {
+    "guide": {
+      "description": "Agent-facing inspection command that writes nothing, prints the minimal interview and backup gate, and recommends start or integrate after detecting existing knowledge files.",
+      "entry_command": ".nexubrain/installer/nexubrain-init.sh guide <target-directory>"
+    },
+    "start": {
+      "description": "Clean start for a new vault, repository, project, or workspace. Requires an interview-confirmed language before writing.",
+      "entry_command": ".nexubrain/installer/nexubrain-init.sh start <target-directory> --language <language> --interview-confirmed",
+      "writes": [
+        "<target>/<localized Nexus path, e.g. 中枢.md for zh-cn>",
+        "<target>/<localized State paths, e.g. 状态/>",
+        "<target>/<localized Knowledge path, e.g. 知识/知识.md for zh-cn>",
+        "<target>/<localized Task path, e.g. 任务/任务.md for zh-cn>",
+        "<target>/<localized Workspace path, e.g. 工作区/工作区.md for zh-cn>",
+        "<target>/<localized Evidence Chain path, e.g. 证据链/证据链.md for zh-cn>",
+        "<target>/<localized Resource path, e.g. 资源/资源.md for zh-cn>",
+        "<target>/AGENTS.md"
+      ]
+    },
+    "integrate": {
+      "description": "Non-destructive integration for an existing knowledge base. Writes hidden review records, a native top-layer proposal, and an AGENTS.md patch proposal under .nexubrain/integration/. The active agent classifies from the native hub when present, or from inventory when no hub exists. With backup-confirmed one-pass policy, agents may continue through localized visible nodes, top-layer-only hub cleanup, and append-only AGENTS entry flow without repeated approval while preserving existing notes.",
+      "entry_command": ".nexubrain/installer/nexubrain-init.sh integrate <target-directory> --language <language> --interview-confirmed --backup-confirmed --hub-edit-policy one-pass-after-backup",
+      "writes": [
+        "<target>/.nexubrain/integration/"
+      ],
+      "approved_native_writes": [
+        "<target>/State/",
+        "<target>/Tasks/",
+        "<target>/Knowledge/",
+        "<target>/Workspaces/",
+        "<target>/EvidenceChain/",
+        "<target>/Resources/",
+        "<native hub candidate>",
+        "<target>/AGENTS.md append-only NexuBrain Entry Flow"
+      ],
+      "boundary": "Default writes stay under .nexubrain/integration/ unless backup-confirmed one-pass policy is selected. Existing folders, note contents, lower-level double links, and existing AGENTS.md rules must be preserved. With backup confirmation, routine additive visible nodes, top-layer-only hub cleanup, and append-only AGENTS entry flow may proceed under the single setup approval. Destructive migration still requires separate human approval."
+    },
+    "interview": {
+      "description": "Write-free configuration interview command. Prints the required questions an agent must ask before start or integrate.",
+      "entry_command": ".nexubrain/installer/nexubrain-init.sh interview <target-directory>"
+    }
+  },
+  "language_policy": {
+    "type": "free-form-user-preference",
+    "canonical_source_language": "en",
+    "translation_owner": "active user agent",
+    "note": "NexuBrain records the preferred configuration language but does not maintain separate built-in translations for every language."
+  },
+  "release_layout": {
+    "target_root_entries": [
+      ".nexubrain/",
+      "README.md"
+    ],
+    "public_page": "README.md",
+    "hidden_framework_source": ".nexubrain/",
+    "canonical_installer": ".nexubrain/installer/nexubrain-init.sh",
+    "dev_compatibility_note": "Older development checkouts may temporarily retain legacy visible files, docs/, and a scripts/ wrapper. The cleaned release surface is .nexubrain/ plus README.md."
+  },
+  "knowledge_layer": {
+    "path": ".nexubrain/templates/Knowledge",
+    "generated_start_path": "<target>/<localized Knowledge directory, e.g. 知识/ for zh-cn>",
+    "generated_integrate_path": "<target>/<localized Knowledge path, e.g. 知识/知识.md for zh-cn> after approval or backup-confirmed one-pass setup, with proposal staged at <target>/.nexubrain/integration/Native-Top-Layer-Proposal.md",
+    "role": "Long-term semantic memory for durable concepts, facts, theories, topic notes, and domain understanding. Knowledge should not be promoted to Tasks unless there is a concrete action."
+  },
+  "integration_policy": {
+    "mode": "native-linked-system-enhancement",
+    "default_writes": [
+      "<target>/.nexubrain/integration/"
+    ],
+    "approved_native_top_layer": [
+      "<target>/<localized State path, e.g. 状态/状态.md for zh-cn>",
+      "<target>/<localized Task path, e.g. 任务/任务.md for zh-cn>",
+      "<target>/<localized Knowledge path, e.g. 知识/知识.md for zh-cn>",
+      "<target>/<localized Workspace path, e.g. 工作区/工作区.md for zh-cn>",
+      "<target>/<localized Evidence Chain path, e.g. 证据链/证据链.md for zh-cn>",
+      "<target>/<localized Resource path, e.g. 资源/资源.md for zh-cn>",
+      "<native hub candidate>",
+      "<target>/AGENTS.md append-only NexuBrain Entry Flow"
+    ],
+    "forbidden_defaults": [
+      "<target>/NexuBrain/",
+      "<target>/Nexus/NexuBrain-Entry.md",
+      "<target>/Hub/NexuBrain-Entry.md",
+      "moving native folders into generated categories",
+      "deleting native folders or notes",
+      "renaming native folders or notes",
+      "overwriting existing knowledge files",
+      "rewriting lower-level note content",
+      "rewriting existing AGENTS.md rules",
+      "keeping classified native folders or notes as first-level hub entries after cleanup"
+    ],
+    "agent_role": "The active agent must inspect the existing hub and double-link structure when present, otherwise start from top-level and Markdown inventories; classify existing notes into native NexuBrain top-layer roles; write hidden review/proposal files first; and, when backup-confirmed one-pass policy is selected, proceed through localized visible nodes, top-layer-only hub cleanup, and append-only AGENTS entry flow without repeated approval."
+  },
+  "interview_gate": {
+    "required_before": [
+      "start",
+      "integrate"
+    ],
+    "required_confirmations": [
+      "configuration language",
+      "target location",
+      "mode confirmation",
+      "backup/disposable/test-copy status"
+    ],
+    "enforced_by_flags": [
+      "--interview-confirmed",
+      "--language",
+      "--backup-confirmed for one-pass integrate",
+      "--hub-edit-policy for integrate"
+    ],
+    "default_integrate_hub_edit_policy": "one-pass-after-backup when backup is confirmed; otherwise proposal-only",
+    "agent_rule": "When the user asks to configure NexuBrain, the agent must first state that configuration requires a short interview, ask language, target, mode, and backup status, run the write-free guide, and then use one-pass integrate if backup is confirmed or proposal-first integrate if backup is not confirmed."
+  },
+  "agents_integration_policy": {
+    "default_proposal": "<target>/.nexubrain/integration/AGENTS-Patch-Proposal.md",
+    "approved_native_write": "<target>/AGENTS.md append-only NexuBrain Entry Flow",
+    "policy": "Existing AGENTS.md rules remain authoritative. NexuBrain first generates .nexubrain/integration/AGENTS-Patch-Proposal.md. With backup-confirmed one-pass integrate, the active agent may append the entry flow during the same setup pass; otherwise it remains proposal-only until approved."
+  },
+  "display_alias_policy": {
+    "canonical_source_paths": "Keep stable English template paths inside the hidden .nexubrain framework source.",
+    "generated_visible_paths": "Localize generated visible filenames and wiki-link targets according to the confirmed language; do not rely on aliases alone in Obsidian graph view.",
+    "zh_cn_examples": [
+      "中枢.md",
+      "状态/当前快照.md",
+      "任务/任务.md",
+      "知识/知识.md",
+      "工作区/工作区.md",
+      "证据链/证据链.md",
+      "资源/资源.md"
+    ],
+    "template_visibility": "Do not copy _Template-* files into the visible graph during normal start or integrate setup."
+  },
+  "hub_cleanup_policy": {
+    "first_level_routes": "After classification, the native hub must route first-level NexuBrain navigation only through top-layer categories and approved agent entry points. Backup-confirmed one-pass policy authorizes this routine cleanup without repeated approval.",
+    "classified_native_links": "Once native folders or notes are classified, preserve them through category nodes and remove/demount them from first-level hub mounts. If the hub still directly links classified native material, setup is incomplete.",
+    "uncertain_links": "Keep uncertain links in Agent-Review-Worksheet.md or an approved temporary review section until classified."
+  },
+  "hubless_integration_policy": {
+    "default_behavior": "A missing hub does not block integrate mode.",
+    "classification_start": "Use Existing Top-Level Items and Existing Markdown Files from Integration-Report.md as the initial map.",
+    "native_hub_creation": "Create a native hub after classification when backup-confirmed one-pass policy is selected; otherwise propose a native hub path and language for approval.",
+    "automation_boundary": "The installer prepares inventories and proposal surfaces; semantic classification is performed by the active agent."
+  },
+  "nexus_policy": {
+    "generated_start_entry": "<target>/Nexus.md",
+    "zh_display_alias": "中枢",
+    "generic_function_name": "hub",
+    "integrate_behavior": "Respect existing native hub names such as 中枢.md, Nexus.md, Hub.md, Home.md, or Index.md; do not force rename them to Nexus.md."
+  },
+  "trademark_policy": ".nexubrain/TRADEMARKS.md",
+  "backup_gate_policy": {
+    "flag": "--backup-confirmed",
+    "one_pass_hub_edit_policy": "one-pass-after-backup",
+    "meaning": "The user confirmed that the target is backed up, disposable, or a copied test vault. Routine additive integrate setup can proceed without repeated approval.",
+    "allowed_one_pass_changes": [
+      "<target>/.nexubrain/integration/",
+      "<target>/<localized State path>",
+      "<target>/<localized Task path>",
+      "<target>/<localized Knowledge path>",
+      "<target>/<localized Workspace path>",
+      "<target>/<localized Evidence Chain path>",
+      "<target>/<localized Resource path>",
+      "<native hub candidate top-layer-only cleanup>",
+      "<target>/AGENTS.md append-only NexuBrain Entry Flow>",
+      "<local NexuBrain source README.md renamed to .README.md>"
+    ],
+    "not_allowed": [
+      "deleting existing notes",
+      "moving existing folders",
+      "renaming existing notes or folders",
+      "overwriting existing knowledge files",
+      "rewriting existing note content",
+      "removing or rewriting existing AGENTS.md rules"
+    ]
+  },
+  "visible_path_policy": ".nexubrain/core/visible-path-policy.md",
+  "source_readme_visibility_policy": {
+    "github_release": "Keep root README.md visible in the published repository so GitHub and Finder users have an entry point.",
+    "local_post_setup": "After start or integrate setup, hide the local NexuBrain source README.md as .README.md so Obsidian does not treat it as a graph node.",
+    "scope": "This hide step affects only the NexuBrain tool/source folder. It must not hide, delete, move, or rewrite user-owned knowledge files."
+  }
+}
